@@ -28,6 +28,7 @@ public class ThreadPoolTest {
 
     @RequestMapping("/sync")
     public String testSynThread(){
+        System.out.println("success-sync");
         return "success-sync";
     }
 
