@@ -15,7 +15,9 @@ public class AsyncExceptionHandler implements AsyncUncaughtExceptionHandler {
         String format = String.format("Async method: {%s} has uncaught exception,params:{%s}",
                 method.getName(), JSONObject.toJSON(params));
         System.out.println(format);
+
         throwable.printStackTrace();
+        System.out.println("modify for dev1");
     }
 
 
