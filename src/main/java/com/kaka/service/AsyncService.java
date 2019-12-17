@@ -10,4 +10,6 @@ public interface AsyncService {
     void noReturnTestWithBeanName() throws InterruptedException;
 
     void noReturnTestForInt(int num) throws InterruptedException;
+
+    void kakaTest() throws InterruptedException;
 }

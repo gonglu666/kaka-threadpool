@@ -12,12 +12,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class AsynSericeImpl implements AsyncService{
 
-    @Async()
+    @Async("asyncTaskExecutor")
     @Override
     public void noReturnTest() throws InterruptedException {
         System.out.println(Thread.currentThread().getName()+":the no return asyc thread start...");
         Thread.sleep(2000);
         System.out.println(Thread.currentThread().getName()+":the no return asyc thread end...");
+    }
+
+    @Async("kaka")
+    @Override
+    public void kakaTest() throws InterruptedException {
+        System.out.println(Thread.currentThread().getName()+":the kaka thread start...");
+        Thread.sleep(2000);
+        System.out.println(Thread.currentThread().getName()+":the kaka thread end...");
     }
 
 

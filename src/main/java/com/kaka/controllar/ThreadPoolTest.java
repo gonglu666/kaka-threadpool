@@ -43,18 +43,6 @@ public class ThreadPoolTest {
         return "asycn-noreturn-success";
     }
 
-    @RequestMapping(value = "/async/noreturn/ex",method = RequestMethod.GET)
-    public String noReturnAsycnThreadWithException(@RequestParam ("number") int num){
-        System.out.println(Thread.currentThread().getName()+":the async no return ex controllar start...");
-        try {
-            asyncService.noReturnTestForInt(num);
-        } catch (InterruptedException e) {
-            return "asycn-noreturn-error";
-        }
-        System.out.println(Thread.currentThread().getName()+":the async no return ex controllar end...");
-        return "asycn-noreturn-success";
-    }
-
     @RequestMapping(value = "/async/noreturn/bb",method = RequestMethod.GET)
     public String noReturnAsycnThreadWithBeanName(){
         System.out.println(Thread.currentThread().getName()+":the async no return bb controllar start...");
@@ -66,6 +54,32 @@ public class ThreadPoolTest {
         System.out.println(Thread.currentThread().getName()+":the async no return bb controllar end...");
         return "asycn-noreturn-success";
     }
+
+    @RequestMapping(value = "/async/kaka",method = RequestMethod.GET)
+    public String asyncKaka(){
+        System.out.println(Thread.currentThread().getName()+":the async kaka controllar start...");
+        try {
+            asyncService.kakaTest();
+        } catch (InterruptedException e) {
+            return "asycn-kaka-error";
+        }
+        System.out.println(Thread.currentThread().getName()+":the async kaka controllar end...");
+        return "asycn-kaka-success";
+    }
+
+    @RequestMapping(value = "/async/noreturn/ex",method = RequestMethod.GET)
+    public String noReturnAsycnThreadWithException(@RequestParam ("number") int num){
+        System.out.println(Thread.currentThread().getName()+":the async no return ex controllar start...");
+        try {
+            asyncService.noReturnTestForInt(num);
+        } catch (InterruptedException e) {
+            return "asycn-noreturn-error";
+        }
+        System.out.println(Thread.currentThread().getName()+":the async no return ex controllar end...");
+        return "asycn-noreturn-success^_^";
+    }
+
+
 
 
 }

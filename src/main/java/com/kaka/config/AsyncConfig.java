@@ -35,4 +35,9 @@ public class AsyncConfig implements AsyncConfigurer {
         return WorkerPoolManager.getInstance().getSyncExecutor();
     }
 
+    @Bean("kaka")
+    public Executor getAsyn() {
+        return WorkerPoolManager.getInstance().getKaka();
+    }
+
 }

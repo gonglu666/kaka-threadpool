@@ -17,6 +17,7 @@ public class WorkerPoolManager {
 
     private ExecutorService syncExecutor;
 	private ExecutorService asyncExecutor;
+	private ExecutorService kaka;
 
 	
 	private WorkerPoolManager() {
@@ -26,6 +27,9 @@ public class WorkerPoolManager {
 
         syncExecutor =new ThreadPoolExecutor(2,5,10, TimeUnit.SECONDS,
                 new LinkedBlockingQueue<Runnable>(200),new KakaNameThreadFactory("kaka-syn"));
+
+		kaka =new ThreadPoolExecutor(2,5,10, TimeUnit.SECONDS,
+				new LinkedBlockingQueue<Runnable>(200),new KakaNameThreadFactory("kaka-own"));
 	}
 	
 	public static WorkerPoolManager getInstance() {
@@ -45,7 +49,13 @@ public class WorkerPoolManager {
     }
 
 
-	
+	public ExecutorService getKaka() {
+		return kaka;
+	}
+
+	public void setKaka(ExecutorService kaka) {
+		this.kaka = kaka;
+	}
 }
 
 
